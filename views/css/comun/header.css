@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color:white;
+    font-family: "Reddit Sans", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f;
+}
+
+header {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+}
+
+header .izquierda {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left:10px
+}
+
+header .izquierda img{
+    width: 40px;
+}
+
+header .central {
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+header .central form {
+    display: flex;
+}
+
+header .central input {
+    height: 35px;
+    width: 350px;
+    border-radius: 30px;
+    border: 1px solid #000000;
+    padding: 5px 15px;
+    font-size: 16px;
+    outline: none; 
+}
+
+header .derecha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right:10px
+
+}
+
+header .botonMenu{
+    background-color: transparent;
+    border-style: none;
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+header .botonSubir {
+    background-color: transparent;
+    border-style: none;
+    font-size: 20px;
+    margin-right: 15px;
+
+}
+
+header .logoYoutube {
+    width: 130px;
+}
+
+
+header .iconoUsuario{
+    width: 30px;
+    border-radius:150px;
+
+}
+
+nav{
+    width: 200px;
+    height: 101%;
+    margin: 20px;
+}
+
+nav h1{
+    font-size: 20px;
+}
+
+.opcion i,
+.opcion h1 {
+  display: inline-block;
+  margin-bottom: 30px;
+  
+}
+
