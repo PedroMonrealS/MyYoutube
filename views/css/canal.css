@@ -1,0 +1,74 @@
+.banner{
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.header{
+    margin-left: 90px;
+    margin-right: 90px;
+
+    display: flex;
+}
+
+.fotoCanal{
+    border-radius: 180px;
+    width: 200px;
+}
+
+.cajaDatos{
+}
+
+.nombreCanal{
+    font-family: roboto;
+    font-size: 36px;
+    margin: 20px;
+}
+
+.video{
+    width: 300px;
+}
+
+.DIVVideo{
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 10px;
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    
+}
+
+.miniatura{
+    width: 300px;
+}
+
+.divDatos{
+    display: flex;
+    flex-direction:column;
+}
+
+
+.TituloVideo{
+    font-size: 13px;
+}
+
+.divNombreCanal{
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+
+}
+
+.FechaSubida{
+    font-size: 10px;
+    color:gray;
+    margin-left: 5px;
+}
+.divFotoPerfilTitulo{
+    display: flex;
+    flex-direction:row;
+}

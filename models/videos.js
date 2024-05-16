@@ -1,3 +1,4 @@
+const { urlencoded } = require('express');
 const mongoose = require('mongoose');
 
 const videoSchema = mongoose.Schema({
@@ -20,6 +21,10 @@ const videoSchema = mongoose.Schema({
     miniatura:{
         type: String,
         required:true
+},
+url:{
+    type: String,
+    required:true
 }
 });
 

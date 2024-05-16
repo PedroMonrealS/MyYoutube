@@ -21,6 +21,10 @@ const usuarioSchema = mongoose.Schema({
         type: String,
         required:true
     },
+    banner:{
+        type: String,
+        required:true
+    },
     contrasena:{
         type: String,
         required:true

@@ -20,4 +20,21 @@ router.get('/usuarios', (req, res) => {
     .catch((error) => res.status(500).json({ mensaje: 'Error al obtener los usuarios', error: error }));
 });
 
+
+//Usuario por id
+router.get('/usuarios/:id', async (req, res) => {
+    const idUsuario = req.params.id;
+    try {
+        const usuario = await usuarioSchema.findById(idUsuario);
+
+        if (!usuario) {
+            return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+        }
+
+        res.json(usuario);
+    } catch (error) {
+        console.error('Error al buscar el usuario:', error);
+        res.status(500).json({ mensaje: 'Error interno del servidor' });
+    }
+});
 module.exports = router;

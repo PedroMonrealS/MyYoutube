@@ -6,7 +6,6 @@ fetch('http://localhost:3000/api/videos')
             return response.json();
         })
         .then(data => {
-            console.log(data);
             videosData = data;
             DatosUsuario(videosData)
         })
@@ -23,7 +22,6 @@ fetch('http://localhost:3000/api/usuarios')
     return response.json();
 })
 .then(data => {
-    console.log(data);
     var usuariosData = data;
     MostrarVideosCuadricula(videosData, usuariosData);
 
@@ -38,9 +36,15 @@ fetch('http://localhost:3000/api/usuarios')
         function MostrarVideosCuadricula(videosData, usuariosData) {
             var DIVCuadricula = document.getElementById("main");
             for (var i = 0; i < videosData.length; i++) {
+                
                 var DIVVideo = document.createElement("div");
+
                 DIVVideo.classList.add("DIVVideo");
                 var miniatura = document.createElement("img");
+                miniatura.id = videosData[i]._id;
+                miniatura.addEventListener("click", function () {
+                    clickVideo(this.id);
+                  });
                 miniatura.classList.add("miniatura");
                 miniatura.src = videosData[i].miniatura;
                 var divDatos = document.createElement("div");
@@ -48,9 +52,12 @@ fetch('http://localhost:3000/api/usuarios')
                 var divFotoPerfilTitulo = document.createElement("div");
                 divFotoPerfilTitulo.classList.add("divFotoPerfilTitulo");
                 var FotoPerfil = document.createElement("img");
+                FotoPerfil.id = videosData[i].idUsuario;
+                FotoPerfil.addEventListener("click", function () {
+                    clickCanal(this.id);
+                  });
                 FotoPerfil.classList.add("FotoPerfil");
                 for( var usuario = 0; usuariosData.length; usuario++){
-                    console.log("FOR");
                     if(usuariosData[usuario]._id == videosData[i].idUsuario){
                         var nombreUsuarioActual = usuariosData[usuario].nombreCanal;
                         FotoPerfil.src = usuariosData[usuario].fotoPerfil;  
@@ -59,9 +66,17 @@ fetch('http://localhost:3000/api/usuarios')
                 }
             }
                 var TituloVideo = document.createElement("h1");
+                TituloVideo.id = videosData[i]._id;
+                TituloVideo.addEventListener("click", function () {
+                    clickVideo(this.id);
+                  });
                 TituloVideo.classList.add("TituloVideo");
                 TituloVideo.textContent = videosData[i].nombreVideo;
                 var NombreCanal = document.createElement("h1");
+                NombreCanal.id = videosData[i].idUsuario;
+                NombreCanal.addEventListener("click", function () {
+                    clickCanal(this.id);
+                  });
                 NombreCanal.textContent = nombreUsuarioActual;
                 NombreCanal.classList.add("NombreCanal");
                 var FechaSubida = document.createElement("h1");
@@ -74,7 +89,6 @@ fetch('http://localhost:3000/api/usuarios')
                 divNombreCanal.appendChild(FechaSubida);
 
             
-                console.log(nombreUsuarioActual);
                 divFotoPerfilTitulo.appendChild(FotoPerfil);
                 divFotoPerfilTitulo.appendChild(TituloVideo);
                 divDatos.appendChild(divFotoPerfilTitulo);
@@ -87,3 +101,14 @@ fetch('http://localhost:3000/api/usuarios')
         
     DIVCuadricula.appendChild(DIVVideo);
 }
+
+
+
+
+function clickVideo(id) {
+    window.location.href = "/video?id=" + id;
+  }
+
+  function clickCanal(id) {
+    window.location.href = "/canal?id=" + id;
+  }
