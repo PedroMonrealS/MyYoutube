@@ -64,9 +64,15 @@ fetch('http://localhost:3000/api/usuarios')
                 var NombreCanal = document.createElement("h1");
                 NombreCanal.textContent = nombreUsuarioActual;
                 NombreCanal.classList.add("NombreCanal");
+                var FechaSubida = document.createElement("h1");
+                FechaSubida.textContent = videosData[i].fechaVideo;
+                FechaSubida.classList.add("FechaSubida");
+
                 var divNombreCanal = document.createElement("div");
                 divNombreCanal.classList.add("divNombreCanal");
                 divNombreCanal.appendChild(NombreCanal);
+                divNombreCanal.appendChild(FechaSubida);
+
             
                 console.log(nombreUsuarioActual);
                 divFotoPerfilTitulo.appendChild(FotoPerfil);

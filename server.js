@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const User = require('./models/usuarios');
 var path = require('path');
+const bcrypt = require('bcrypt');
 require('dotenv').config();
 const app = express();
 const port = 3000;
@@ -30,6 +32,45 @@ app.get("/", (req,res) =>{
 })
 
 
+
+//Formularios
+
+//Login
+app.get('/login', (req, res) => {
+    res.sendFile(__dirname + '/views/html/login/login.html');
+});
+
+
+//REGISTRO
+
+// Registrar un nuevo usuario
+app.post('/register', async (req, res) => {
+    const { nombre, apellidos, correo, nombreCanal, fotoPerfil, contrasena } = req.body;
+    try {
+        // Verificar si el usuario ya existe
+        const existingUser = await User.findOne({ correo });
+        if (existingUser) {
+            res.sendFile(__dirname + '/views/registered_ko.html'); // Usuario ya registrado
+        } else {
+            // Hash de la contraseña antes de almacenarla en la base de datos
+            const hashedPassword = await bcrypt.hash(contrasena, 10);
+            const newUser = new User({
+                nombre: nombre,
+                apellidos: apellidos,
+                correo: correo,
+                nombreCanal,
+                fotoPerfil,
+                contrasena: hashedPassword,
+            });
+            // Guardar el nuevo usuario en la base de datos
+            await newUser.save();
+            res.sendFile(__dirname + '/views/registered.html'); // Usuario registrado con éxito
+        }
+    } catch {
+        console.error("Error en el registro");
+        res.status(500).send('Internal server error');
+    }
+});
 
 
 

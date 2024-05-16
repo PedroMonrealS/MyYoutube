@@ -32,6 +32,7 @@
 .divNombreCanal{
     margin-top: auto;
     width: 100%;
+    display: flex;
 
 }
 .NombreCanal{
@@ -39,7 +40,11 @@
     color:gray;
     margin-left: 35px;
 }
-
+.FechaSubida{
+    font-size: 10px;
+    color:gray;
+    margin-left: 5px;
+}
 .divFotoPerfilTitulo{
     display: flex;
     flex-direction:row;
