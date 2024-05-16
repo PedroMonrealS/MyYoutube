@@ -94,7 +94,6 @@ header .iconoUsuario{
 
 nav{
     margin: 20px;
-    border-style: solid;
     position: fixed;
     
 }
@@ -111,7 +110,6 @@ nav h1{
 }
 
 main{
-    border-style: solid;
     border-radius: 10px;
     margin: 10px 10px 0 15%;
     height: auto;
@@ -119,10 +117,8 @@ main{
 }
 
 main div h1{
-    border-style: solid;
 }   
 
 .contenido{
-    border-style: solid;
 }
 
