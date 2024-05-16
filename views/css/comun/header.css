@@ -54,6 +54,8 @@ header .central input {
     padding: 5px 15px;
     font-size: 16px;
     outline: none; 
+    color:black;
+
 }
 
 header .derecha {
@@ -85,15 +87,16 @@ header .logoYoutube {
 
 
 header .iconoUsuario{
-    width: 30px;
+        width: 30px;
     border-radius:150px;
 
 }
 
 nav{
-    width: 200px;
-    height: 101%;
     margin: 20px;
+    border-style: solid;
+    position: fixed;
+    
 }
 
 nav h1{
@@ -105,5 +108,21 @@ nav h1{
   display: inline-block;
   margin-bottom: 30px;
   
+}
+
+main{
+    border-style: solid;
+    border-radius: 10px;
+    margin: 10px 10px 0 15%;
+    height: auto;
+
+}
+
+main div h1{
+    border-style: solid;
+}   
+
+.contenido{
+    border-style: solid;
 }
 
